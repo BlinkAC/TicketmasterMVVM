@@ -4,7 +4,7 @@ import android.util.Log
 import com.example.ticketmastermvvm.core.RetrofitHelper
 import com.example.ticketmastermvvm.data.Embedded
 import com.example.ticketmastermvvm.data.EventModel
-import com.example.ticketmastermvvm.data.Events
+import com.example.ticketmastermvvm.data.EventData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

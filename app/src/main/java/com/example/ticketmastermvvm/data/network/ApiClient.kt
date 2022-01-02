@@ -2,7 +2,7 @@ package com.example.ticketmastermvvm.data.network
 
 import com.example.ticketmastermvvm.data.Embedded
 import com.example.ticketmastermvvm.data.EventModel
-import com.example.ticketmastermvvm.data.Events
+import com.example.ticketmastermvvm.data.EventData
 import retrofit2.Response
 import retrofit2.http.GET
 

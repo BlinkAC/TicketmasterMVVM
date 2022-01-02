@@ -7,10 +7,10 @@ data class EventModel(
 )
 
 data class Embedded (
-    @SerializedName("events" ) var events : List<Events> = emptyList()
+    @SerializedName("events" ) var events : List<EventData> = emptyList()
 )
 
-data class Events (
+data class EventData (
 
     @SerializedName("name"            ) var name            : String?                    = null,
     @SerializedName("type"            ) var type            : String?                    = null,
