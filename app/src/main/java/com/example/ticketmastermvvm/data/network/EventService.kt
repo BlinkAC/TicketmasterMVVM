@@ -11,9 +11,20 @@ import kotlinx.coroutines.withContext
 class EventService {
     private val retrofit = RetrofitHelper.getRetrofit()
 
-    suspend fun getEvents(): EventModel{
+    suspend fun getCountryEvents(): EventModel{
         return withContext(Dispatchers.IO) {
             val response = retrofit.create(ApiClient::class.java).getMxEvents()
+            if(response.isSuccessful){
+                Log.d("Papu", response.body().toString())
+            }
+            response.body()!!
+        }
+
+    }
+
+    suspend fun getNearEvents(): EventModel{
+        return withContext(Dispatchers.IO) {
+            val response = retrofit.create(ApiClient::class.java).getNearEvents()
             if(response.isSuccessful){
                 Log.d("Papu", response.body().toString())
             }

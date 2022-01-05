@@ -2,9 +2,7 @@ package com.example.ticketmastermvvm.domain
 
 import com.example.ticketmastermvvm.data.EventRepository
 
-class GetEventsUseCase {
-
+class GetNearEventsUseCase {
     private val repository = EventRepository()
-    suspend operator fun invoke() = repository.getCountryEvents()
-
+    suspend operator fun invoke() = repository.getNearEvents()
 }

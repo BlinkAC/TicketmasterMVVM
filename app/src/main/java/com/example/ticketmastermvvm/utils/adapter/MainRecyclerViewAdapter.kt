@@ -1,6 +1,7 @@
-package com.example.ticketmastermvvm.adapter
+package com.example.ticketmastermvvm.utils.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ticketmastermvvm.R
 import com.example.ticketmastermvvm.data.EventData
 import com.example.ticketmastermvvm.data.categoryModel.AllCategories
+import com.example.ticketmastermvvm.ui.views.EventDetails
+import com.example.ticketmastermvvm.utils.interfaces.ClickListener
 
 class MainRecyclerViewAdapter(private val allCategory: List<AllCategories>):
+    ClickListener,
     RecyclerView.Adapter<MainRecyclerViewAdapter.MainViewHolder>(){
 
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -46,8 +50,19 @@ class MainRecyclerViewAdapter(private val allCategory: List<AllCategories>):
         recyclerView.apply {
             val layoutManager: RecyclerView.LayoutManager= LinearLayoutManager(context,RecyclerView.HORIZONTAL,false )
             recyclerView.layoutManager = layoutManager
-            adapter = EventAdapter(eventsList)
+            adapter = EventAdapter(eventsList, this@MainRecyclerViewAdapter)
         }
 
+    }
+
+    override fun OnItemClick(event: EventData, context: Context) {
+        val intent = Intent(context, EventDetails::class.java)
+        intent.putExtra("eventId", event.id)
+        intent.putExtra("eventName", event.name)
+        intent.putExtra("eventPoster", event.images[4].url)
+        intent.putExtra("eventLocale", event.locale)
+        intent.putExtra("eventPleaseNote", event.pleaseNote)
+        intent.putExtra("eventInfo", event.info)
+        context.startActivity(intent)
     }
 }

@@ -7,8 +7,14 @@ class EventRepository {
 
     private val api = EventService()
 
-    suspend fun getAllEvents(): Embedded?{
-        val response = api.getEvents().Embedded
+    suspend fun getCountryEvents(): Embedded?{
+        val response = api.getCountryEvents().Embedded
+        EventProvider.events = response
+        return response
+    }
+
+    suspend fun getNearEvents(): Embedded?{
+        val response = api.getNearEvents().Embedded
         EventProvider.events = response
         return response
     }

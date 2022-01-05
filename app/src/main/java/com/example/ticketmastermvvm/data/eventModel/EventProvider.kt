@@ -6,7 +6,6 @@ import com.example.ticketmastermvvm.data.EventData
 
 class EventProvider {
     companion object {
-
         //var quotes:List<QuoteModel> = emptyList()
         var events: Embedded? = null
 

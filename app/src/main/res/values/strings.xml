@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TicketMasterMVVM</string>
+    <string name="info">Información general:</string>
+    <string name="pleaseNote">Observaciones:</string>
+    <string name="age">Límite de edad para el acceso:</string>
 </resources>
