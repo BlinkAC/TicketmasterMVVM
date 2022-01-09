@@ -15,13 +15,14 @@ class EventViewModel: ViewModel() {
     val isLoading = MutableLiveData<Boolean>()
     //val nearModel = MutableLiveData<NearEmbedded?>()
     //val isLoanding
+    //var geoPoint:String = "dr5re"
     var getEventsUseCase = GetEventsUseCase()
-    var getNearEventsUseCase = GetNearEventsUseCase()
+    //var getNearEventsUseCase =
 
-    fun nearEvents(){
+    fun nearEvents(geoPoint: String){
         viewModelScope.launch {
             isLoading.postValue(true)
-            val result = getNearEventsUseCase()
+            val result = GetNearEventsUseCase(geoPoint).invoke()
             nearModel.postValue(result)
             isLoading.postValue(false)
         }
@@ -29,7 +30,6 @@ class EventViewModel: ViewModel() {
 
     fun onCreate(){
         viewModelScope.launch {
-
             val result = getEventsUseCase()
             eventModel.postValue(result)
 

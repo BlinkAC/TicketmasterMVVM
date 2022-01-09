@@ -13,10 +13,16 @@ class EventRepository {
         return response
     }
 
-    suspend fun getNearEvents(): Embedded?{
-        val response = api.getNearEvents().Embedded
+    suspend fun getNearEvents(geoPoint: String): Embedded?{
+        val response = api.getNearEvents(geoPoint).Embedded
         EventProvider.events = response
         return response
+    }
+
+    suspend fun getSearchedEvents(keyword: String?, countryCode: String?, segmentName: String?): Embedded?{
+        val response = api.getSearchedEvents(keyword, countryCode, segmentName).Embedded
+        EventProvider.events = response
+        return  response
     }
 
 

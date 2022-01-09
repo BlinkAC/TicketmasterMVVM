@@ -2,5 +2,7 @@
     <string name="app_name">TicketMasterMVVM</string>
     <string name="info">Información general:</string>
     <string name="pleaseNote">Observaciones:</string>
-    <string name="age">Límite de edad para el acceso:</string>
+    <string name="age">Edad mínima de acceso al evento:</string>
+    <string name="evetos">Eventos</string>
+    <string name="conciertos">Conciertos</string>
 </resources>

@@ -22,15 +22,25 @@ class EventService {
 
     }
 
-    suspend fun getNearEvents(): EventModel{
+    suspend fun getNearEvents(geoPoint:String): EventModel{
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(ApiClient::class.java).getNearEvents()
+            val response = retrofit.create(ApiClient::class.java).getNearEvents(geoPoint)
             if(response.isSuccessful){
                 Log.d("Papu", response.body().toString())
             }
             response.body()!!
         }
 
+    }
+
+    suspend fun getSearchedEvents(keyword: String?, countryCode: String?, segmentName: String?): EventModel{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.
+                            create(ApiClient::class.java)
+                            .getSearchedEvents(keyword=keyword, countryCode = countryCode, segmentName = segmentName)
+
+            response.body()!!
+        }
     }
 
 }

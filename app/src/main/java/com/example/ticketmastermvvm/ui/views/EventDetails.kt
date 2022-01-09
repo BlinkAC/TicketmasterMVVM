@@ -43,7 +43,6 @@ class EventDetails : AppCompatActivity() {
         }else{
             myEventInfo.text = "No hay información por mostrar"
         }
-        myPleaseNote.text = pleaseNote
     }
 
     //Json response comes without \s or \n, spliting event info and please notes
@@ -65,6 +64,8 @@ class EventDetails : AppCompatActivity() {
         return builder
     }
 
+    //|[A-Z][íóáa-z\s]+:
+    //https://images.pexels.com/photos/2147029/pexels-photo-2147029.jpeg
     private fun splitNotes(eventNotes: String):StringBuilder{
         var splitNotes: List<String> = emptyList()
 
@@ -74,7 +75,7 @@ class EventDetails : AppCompatActivity() {
 
         val builder: StringBuilder = StringBuilder()
         for(element in splitNotes){
-            builder.append("$element.")
+            builder.append(element)
             builder.append("\n")
         }
         return builder

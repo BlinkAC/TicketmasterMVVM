@@ -7,10 +7,16 @@
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/drawable/collapsing_toolbar_background.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/drawable/heart_foreground.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/drawable/layout_background.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/drawable/lupa_foreground.xml" value="0.2203125" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/drawable/star_foreground.xml" value="0.2203125" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/layout/activity_event_details.xml" value="0.3582089552238806" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/layout/activity_search_result_screen.xml" value="0.33" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/layout/activity_search_screen.xml" value="0.33" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/layout/activity_splash_screen.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/layout/event_item.xml" value="0.11503623188405797" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/layout/parent_item.xml" value="0.22" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/TicketMasterMVVM/app/src/main/res/layout/search_item.xml" value="0.25" />
       </map>
     </option>
   </component>

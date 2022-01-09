@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.views.SearchScreen"
+    android:id="@+id/papa"
+    android:background="#181D31">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:cardCornerRadius="12dp"
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/papa"
+        app:layout_constraintBottom_toBottomOf="@id/papa"
+        app:layout_constraintVertical_bias="0"
+        android:backgroundTint="#34394C">
+        <EditText
+            android:id="@+id/editTextQuery"
+            android:layout_marginStart="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="Busca por artista/evento"
+            android:background="#34394C"
+            >
+        </EditText>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/papa"
+        app:layout_constraintEnd_toEndOf="@id/papa"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:layout_constraintBottom_toBottomOf="@id/papa"
+        app:layout_constraintVertical_bias=".4"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonEvents"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:backgroundTint="#3350E3"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/evetos"
+            android:textAllCaps="false"
+            android:drawableTop="@drawable/star_foreground"
+            >
+
+        </Button>
+
+        <Button
+            android:id="@+id/buttonConcerts"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:backgroundTint="#DA4F26"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/conciertos"
+            android:drawableTop="@drawable/star_foreground"
+            android:textAllCaps="false"
+            >
+        </Button>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

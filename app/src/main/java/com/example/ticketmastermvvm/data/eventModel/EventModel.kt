@@ -22,7 +22,7 @@ data class EventData (
     @SerializedName("distance"        ) var distance        : Double?                    = null,
     @SerializedName("units"           ) var units           : String?                    = null,
     //@SerializedName("sales"           ) var sales           : Sales?                     = Sales(),
-    //@SerializedName("dates"           ) var dates           : Dates?                     = Dates(),
+    @SerializedName("dates"           ) var dates           : Dates?                     = Dates(),
     //@SerializedName("classifications" ) var classifications : ArrayList<Classifications> = arrayListOf(),
     //@SerializedName("promoter"        ) var promoter        : Promoter?                  = Promoter(),
     //@SerializedName("promoters"       ) var promoters       : ArrayList<Promoters>       = arrayListOf(),
@@ -37,13 +37,38 @@ data class EventData (
     @SerializedName("_embedded"       ) var Embedded        : Embedded?                  = Embedded()
 
 )
+data class Dates (
+
+    @SerializedName("start"            ) var start            : Start?   = Start(),
+    @SerializedName("timezone"         ) var timezone         : String?  = null,
+    @SerializedName("status"           ) var status           : Status?  = Status(),
+    @SerializedName("spanMultipleDays" ) var spanMultipleDays : Boolean? = null
+
+)
+
+data class Start (
+
+    @SerializedName("localDate"      ) var localDate      : String?  = null,
+    @SerializedName("localTime"      ) var localTime      : String?  = null,
+    @SerializedName("dateTime"       ) var dateTime       : String?  = null,
+    @SerializedName("dateTBD"        ) var dateTBD        : Boolean? = null,
+    @SerializedName("dateTBA"        ) var dateTBA        : Boolean? = null,
+    @SerializedName("timeTBA"        ) var timeTBA        : Boolean? = null,
+    @SerializedName("noSpecificTime" ) var noSpecificTime : Boolean? = null
+
+)
+
+data class Status (
+
+    @SerializedName("code" ) var code : String? = null
+
+)
 
 data class PriceRanges (
-
     @SerializedName("type"     ) var type     : String? = null,
     @SerializedName("currency" ) var currency : String? = null,
-    @SerializedName("min"      ) var min      : Int?    = null,
-    @SerializedName("max"      ) var max      : Int?    = null
+    @SerializedName("min"      ) var min      : Double?    = null,
+    @SerializedName("max"      ) var max      : Double?    = null
 
 )
 

@@ -21,7 +21,7 @@ class EventAdapter (val eventList: List<EventData>, val listener: ClickListener)
     }
 
     override fun onBindViewHolder(holder: EventsViewHolder, position: Int) {
-        return holder.bindInfo(reversedList[position])
+        return holder.bindInfo(eventList[position])
     }
 
     override fun getItemCount(): Int {
@@ -35,7 +35,7 @@ class EventAdapter (val eventList: List<EventData>, val listener: ClickListener)
             itemView.setOnClickListener {
                 listener.OnItemClick(event, image.context)
             }
-            Picasso.get().load(event.images[4].url).into(image)
+            Picasso.get().load(event.images[5].url).into(image)
 
         }
     }
