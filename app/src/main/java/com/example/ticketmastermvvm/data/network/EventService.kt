@@ -33,7 +33,7 @@ class EventService {
 
     }
 
-    suspend fun getSearchedEvents(keyword: String?, countryCode: String?, segmentName: String?): EventModel{
+    /*suspend fun getSearchedEvents(keyword: String?, countryCode: String?, segmentName: String?): EventModel{
         return withContext(Dispatchers.IO){
             val response = retrofit.
                             create(ApiClient::class.java)
@@ -41,6 +41,6 @@ class EventService {
 
             response.body()!!
         }
-    }
+    }*/
 
 }

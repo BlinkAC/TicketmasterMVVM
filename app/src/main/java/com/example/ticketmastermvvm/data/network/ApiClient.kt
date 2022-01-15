@@ -15,9 +15,11 @@ interface ApiClient {
     suspend fun getNearEvents(@Query("geoPoint") geoPoint: String)
     : Response<EventModel>
 
-    @GET("events.json?apikey=cZMYDVJB1Z4R8jCaBAdlxlXHUU6GLpB4&")
+    @GET("events.json?apikey=cZMYDVJB1Z4R8jCaBAdlxlXHUU6GLpB4")
     suspend fun getSearchedEvents(@Query("keyword") keyword: String?,
                                   @Query("countryCode") countryCode: String?,
-                                  @Query("segmentName") segmentName: String?)
+                                  @Query("segmentName") segmentName: String?,
+                                  @Query("page") page: Int?
+                                  )
     : Response<EventModel>
 }

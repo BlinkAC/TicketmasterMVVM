@@ -12,7 +12,7 @@ class SearchEventsViewModel: ViewModel() {
     val searchEvents = MutableLiveData<Embedded?>()
     val isLoading = MutableLiveData<Boolean>()
 
-    fun getSearchedEvents(keyword: String?, countryCode: String?, segmentName: String?){
+    /*fun getSearchedEvents(keyword: String?, countryCode: String?, segmentName: String?){
         viewModelScope.launch {
             isLoading.postValue(true)
             var result = GetSearchedEventsUseCase(keyword, countryCode, segmentName).invoke()
@@ -20,5 +20,5 @@ class SearchEventsViewModel: ViewModel() {
             isLoading.postValue(false)
         }
 
-    }
+    }*/
 }

@@ -6,6 +6,6 @@ class GetSearchedEventsUseCase
     (val keyword: String?,
      val countryCode: String?,
      val segmentName: String?) {
-    private val repository = EventRepository()
-    suspend operator fun invoke() = repository.getSearchedEvents(keyword, countryCode, segmentName)
+    /*private val repository = EventRepository()
+    suspend operator fun invoke() = repository.getSearchedEvents(keyword, countryCode, segmentName)*/
 }
