@@ -14,6 +14,7 @@ import com.example.ticketmastermvvm.databinding.ActivitySearchResultScreenBindin
 import com.example.ticketmastermvvm.ui.viewModels.SearchEventsViewModel
 import com.example.ticketmastermvvm.ui.viewModels.SearchViewModel
 import com.example.ticketmastermvvm.ui.viewModels.SearchViewModelFactory
+import com.example.ticketmastermvvm.utils.adapter.EventsLoadStateAdapter
 import com.example.ticketmastermvvm.utils.adapter.PagingAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -51,29 +52,9 @@ class SearchResultScreen : AppCompatActivity() {
             }
         }
 
+
         bindUi()
 
-
-
-
-        /*searchViewModel.getSearchedEvents(keyword, countryCode, segmentName)
-        searchViewModel.searchEvents.observe(this, {
-            setSearchRV(it!!.events)
-        })
-
-        searchViewModel.isLoading.observe(this,{visibility->
-            binding.searchLoanding.isVisible = visibility
-        })
-
-    }
-
-    private fun setSearchRV(events: List<EventData>){
-        searchRV = findViewById(R.id.rvSearch)
-        searchRV?.apply {
-            val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this@SearchResultScreen)
-            searchRV!!.layoutManager = layoutManager
-            adapter = SearchAdapter(events)
-        }*/
 
 
     }
@@ -82,7 +63,11 @@ class SearchResultScreen : AppCompatActivity() {
         searchRV.apply {
             val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this@SearchResultScreen)
             searchRV!!.layoutManager = layoutManager
-            searchRV!!.adapter = searchEventAdapter
+            searchRV!!.adapter = searchEventAdapter.withLoadStateHeaderAndFooter(
+                header = EventsLoadStateAdapter{ searchEventAdapter.retry() },
+                footer = EventsLoadStateAdapter{ searchEventAdapter.retry() }
+
+            )
         }
 
     }

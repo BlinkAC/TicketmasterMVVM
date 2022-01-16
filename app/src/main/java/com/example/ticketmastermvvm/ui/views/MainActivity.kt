@@ -64,10 +64,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Log.i("geoPoint", eventViewModel.geoPoint)
-
-
-        //Log.d("Geohash", getGeoHash())
     }
 
     //9u8d4

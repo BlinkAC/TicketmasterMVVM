@@ -5,4 +5,5 @@
     <string name="age">Edad mínima de acceso al evento:</string>
     <string name="evetos">Eventos</string>
     <string name="conciertos">Conciertos</string>
+    <string name="retry_button">Intentar de nuevo</string>
 </resources>

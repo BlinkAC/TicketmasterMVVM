@@ -1,8 +1,10 @@
 package com.example.ticketmastermvvm.data
 
 import android.util.Log
+import android.widget.ProgressBar
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.ticketmastermvvm.R
 import com.example.ticketmastermvvm.core.RetrofitHelper
 import com.example.ticketmastermvvm.data.network.ApiClient
 import retrofit2.HttpException
@@ -20,6 +22,7 @@ class EventPagingSource(private val retrofit: RetrofitHelper, private val keywor
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, EventData> {
         val currentPage = params.key ?: STARTING_PAGE_INDEX
+
         return try{
             val instance = retrofit.getRetrofit().create(ApiClient::class.java)
             val response = instance.getSearchedEvents(keyword, countryCode, segmentName, currentPage)
