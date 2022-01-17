@@ -9,11 +9,14 @@
 
     <TextView
         android:id="@+id/error_msg"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="18sp"
+        android:textColor="@color/white"
         tools:text="Timeout" />
 
     <ProgressBar
@@ -28,5 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAllCaps="false"
+        android:backgroundTint="#36AFF1"
         android:text="@string/retry_button" />
 </LinearLayout>

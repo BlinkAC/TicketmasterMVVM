@@ -13,6 +13,8 @@ import com.example.ticketmastermvvm.R
 import com.example.ticketmastermvvm.data.EventData
 import com.squareup.picasso.Picasso
 
+
+//This adapter is the one implemented on the pagination branch
 class PagingAdapter: PagingDataAdapter<EventData, PagingAdapter.ViewHolder>(DataDiff) {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {

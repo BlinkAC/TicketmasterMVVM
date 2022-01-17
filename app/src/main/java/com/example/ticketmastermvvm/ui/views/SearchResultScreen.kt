@@ -2,9 +2,12 @@ package com.example.ticketmastermvvm.ui.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ticketmastermvvm.R
@@ -59,17 +62,28 @@ class SearchResultScreen : AppCompatActivity() {
 
     }
    private fun bindUi() {
-       searchRV = findViewById(R.id.rvSearch)
+       searchRV = binding.rvSearch
+
+
         searchRV.apply {
             val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this@SearchResultScreen)
             searchRV!!.layoutManager = layoutManager
             searchRV!!.adapter = searchEventAdapter.withLoadStateHeaderAndFooter(
                 header = EventsLoadStateAdapter{ searchEventAdapter.retry() },
                 footer = EventsLoadStateAdapter{ searchEventAdapter.retry() }
-
             )
-        }
 
+        }
+   }
+
+
+
+
+    private fun showEmptyList(isEmptyList: Boolean) {
+        binding.rvSearch.isVisible = isEmptyList
+        if(isEmptyList){
+            Log.d("gatita", "sin resultados")
+        }
     }
 }
 

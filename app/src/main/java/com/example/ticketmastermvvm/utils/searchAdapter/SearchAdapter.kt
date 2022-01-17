@@ -10,7 +10,8 @@ import com.example.ticketmastermvvm.R
 import com.example.ticketmastermvvm.data.EventData
 import com.squareup.picasso.Picasso
 
-
+//This adapter is for simple search (No pagingn)
+//To see his implimentation watch main branch code
 class SearchAdapter(val eventList: List<EventData>):
 
     RecyclerView.Adapter<SearchAdapter.SearchEventsViewHolder>() {
