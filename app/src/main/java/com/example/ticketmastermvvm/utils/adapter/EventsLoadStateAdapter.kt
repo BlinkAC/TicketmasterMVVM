@@ -8,6 +8,7 @@ import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ticketmastermvvm.databinding.NetworkStateLoadingBinding
 
+//If the scroll is slow makes seem like the progessbar never appears
 class EventsLoadStateAdapter(private val retry: () -> Unit):
 LoadStateAdapter<EventsLoadStateAdapter.StateViewHolder>(){
 

@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso
 
 
 //This adapter is the one implemented on the pagination branch
+//If the scroll is slow makes seem like the progessbar never appears
 class PagingAdapter: PagingDataAdapter<EventData, PagingAdapter.ViewHolder>(DataDiff) {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
