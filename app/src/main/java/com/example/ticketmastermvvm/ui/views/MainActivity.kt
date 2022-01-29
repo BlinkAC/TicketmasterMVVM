@@ -4,24 +4,21 @@ import android.content.Intent
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ticketmastermvvm.R
-import com.example.ticketmastermvvm.data.EventData
 import com.example.ticketmastermvvm.data.categoryModel.AllCategories
 import com.example.ticketmastermvvm.databinding.ActivityMainBinding
 import com.example.ticketmastermvvm.ui.viewModels.EventViewModel
 import ch.hsr.geohash.GeoHash
-import com.example.ticketmastermvvm.utils.adapter.EventAdapter
 import com.example.ticketmastermvvm.utils.adapter.MainRecyclerViewAdapter
 import com.google.android.material.navigation.NavigationView
 
@@ -29,7 +26,9 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var drawerLayout:  DrawerLayout
+
     private val eventViewModel: EventViewModel by viewModels()
     private var mainRecyclerView: RecyclerView? = null
     private var allCategory: MutableList<AllCategories> = ArrayList()
@@ -40,25 +39,33 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //using toolbar instead of action bar and setting up for drawer layout
         val myToolbar: Toolbar = findViewById(R.id.myToolbar)
-        val drawerLayout: DrawerLayout = binding.drawerMenu
+        drawerLayout = binding.drawerMenu
         val navView: NavigationView = binding.myNavView
+
+        //Passing the drawer layout as parameter is indeed or a left narrow appears instead of ham icon
         toggle = ActionBarDrawerToggle(this, drawerLayout, myToolbar, R.string.open, R.string.close)
         toggle.syncState()
         setSupportActionBar(myToolbar)
 
+        //if false the app tittle keeps appearing
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        //
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
         navView.setNavigationItemSelectedListener {
+            //it.isChecked = true
             when(it.itemId){
-                R.id.nav_home -> Toast.makeText(this, "Se presiono home", Toast.LENGTH_LONG).show()
-                R.id.nav_favs -> Toast.makeText(this, "Se preciono favs", Toast.LENGTH_LONG).show()
+                R.id.nav_home -> replaceFragment(FavoritesFragment())
+                R.id.nav_favs -> replaceFragment(SecondTestFragment())
             }
             true
         }
 
+
+        //Gettting the values of lat and long from splashscreen
         val bundle: Bundle? = intent.extras
         val lat = bundle?.getString("latitude").toString()
         val long = bundle?.getString("longitude").toString()
@@ -91,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //9u8d4
+    //The API works with geohash not with lat/long
     private fun getGeoHash(lat: String, long: String): String{
         val location = Location("geohash")
         location.latitude = lat.toDouble()
@@ -101,6 +108,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    //Sets the main recyclerview (vertical with horizontal childs)
     private fun setMainRecyclerView(allCategories: List<AllCategories>){
         mainRecyclerView = findViewById(R.id.parentRecyclerView)
         mainRecyclerView?.apply {
@@ -116,6 +124,15 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.mainFrameLayout, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+        drawerLayout.closeDrawers()
     }
 }
 

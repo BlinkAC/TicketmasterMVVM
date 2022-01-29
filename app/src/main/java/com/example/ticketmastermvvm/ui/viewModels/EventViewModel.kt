@@ -4,11 +4,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ticketmastermvvm.data.Embedded
+import com.example.ticketmastermvvm.data.EventRepository
+import com.example.ticketmastermvvm.data.db.Event
 import com.example.ticketmastermvvm.domain.GetEventsUseCase
 import com.example.ticketmastermvvm.domain.GetNearEventsUseCase
 import kotlinx.coroutines.launch
 
-class EventViewModel: ViewModel() {
+class EventViewModel(): ViewModel() {
+
+
 
     val eventModel = MutableLiveData<Embedded?>()
     val nearModel = MutableLiveData<Embedded?>()
@@ -35,5 +39,7 @@ class EventViewModel: ViewModel() {
 
         }
     }
+
+
 
 }

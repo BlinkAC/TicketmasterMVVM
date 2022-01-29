@@ -10,10 +10,17 @@
     tools:context=".ui.views.MainActivity">
 
 
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainFrameLayout"
+        >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
+
 
         <include
             android:id="@+id/myToolbar"
@@ -46,7 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ProgressBar>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </FrameLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/myNavView"
         android:fitsSystemWindows="true"

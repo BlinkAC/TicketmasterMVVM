@@ -3,10 +3,12 @@ package com.example.ticketmastermvvm.data
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
+import com.example.ticketmastermvvm.data.db.Event
+import com.example.ticketmastermvvm.data.db.EventDAO
 import com.example.ticketmastermvvm.data.eventModel.EventProvider
 import com.example.ticketmastermvvm.data.network.EventService
 
-class EventRepository {
+class EventRepository() {
 
     private val api = EventService()
 
@@ -27,6 +29,7 @@ class EventRepository {
         EventProvider.events = response
         return  response
     }*/
+
 
 
 

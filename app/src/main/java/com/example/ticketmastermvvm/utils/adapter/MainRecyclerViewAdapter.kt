@@ -63,6 +63,7 @@ class MainRecyclerViewAdapter(private val allCategory: List<AllCategories>):
         intent.putExtra("eventLocale", event.locale)
         intent.putExtra("eventPleaseNote", event.pleaseNote)
         intent.putExtra("eventInfo", event.info)
+        intent.putExtra("eventDate", event.dates!!.start!!.localDate)
         context.startActivity(intent)
     }
 }

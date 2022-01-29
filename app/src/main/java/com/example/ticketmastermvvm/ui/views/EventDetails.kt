@@ -1,22 +1,31 @@
 package com.example.ticketmastermvvm.ui.views
 
+import android.content.Context
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.ticketmastermvvm.R
+import androidx.lifecycle.ViewModelProvider
 import com.example.ticketmastermvvm.databinding.ActivityEventDetailsBinding
+import com.example.ticketmastermvvm.ui.viewModels.EventViewModel2
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.squareup.picasso.Picasso
 
 class EventDetails : AppCompatActivity() {
     private lateinit var binding: ActivityEventDetailsBinding
+    private lateinit var viewModel: EventViewModel2
+    lateinit var context: Context
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEventDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        context = this
+        viewModel = ViewModelProvider(this).get(EventViewModel2::class.java)
+
 
         val myEventPoster: ImageView = binding.posterEvent
         val myEventName: CollapsingToolbarLayout = binding.collapsingToolbar
@@ -31,8 +40,10 @@ class EventDetails : AppCompatActivity() {
         val eventName = bundle?.getString("eventName")
         val eventInfo = bundle?.getString("eventInfo")
         val eventPoster = bundle?.getString("eventPoster")
-        val eventLocale = bundle?.getString("eventLocale")
+        //val eventLocale = bundle?.getString("eventLocale")
+        val eventDate = bundle?.getString("eventDate")
         val pleaseNote = bundle?.getString("eventPleaseNote")
+
 
 
         Picasso.get().load(eventPoster).into(myEventPoster)
@@ -43,7 +54,18 @@ class EventDetails : AppCompatActivity() {
         }else{
             myEventInfo.text = "No hay información por mostrar"
         }
+
+        binding.favoriteButton.setOnClickListener {
+            viewModel.insertData(context, id = eventID.toString(), name = eventName.toString(),
+            image = eventPoster.toString(), date = eventDate.toString())
+        }
+
+        binding.gatito.setOnClickListener {
+            Log.d("Lista", viewModel.getAllEvents(context)!!.value.toString())
+        }
+
     }
+
 
     //Json response comes without \s or \n, spliting event info and please notes
     private fun splitInfo(eventInfo: String): StringBuilder{
